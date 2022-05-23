@@ -41,6 +41,8 @@
 		<Unit filename="3.txt" />
 		<Unit filename="4.txt" />
 		<Unit filename="5.txt" />
+		<Unit filename="drawcontinue.cpp" />
+		<Unit filename="drawcontinue.h" />
 		<Unit filename="drawmap.cpp" />
 		<Unit filename="drawmap.h" />
 		<Unit filename="drawmenu.cpp" />
@@ -49,9 +51,18 @@
 		<Unit filename="getmap.h" />
 		<Unit filename="levelchecksuccess.cpp" />
 		<Unit filename="levelchecksuccess.h" />
+		<Unit filename="playerpos.cpp" />
+		<Unit filename="playerpos.h" />
+		<Unit filename="renderbackgame.cpp" />
+		<Unit filename="renderbackgame.h" />
+		<Unit filename="rendergame.cpp" />
+		<Unit filename="rendergame.h" />
+		<Unit filename="renderpause.cpp" />
+		<Unit filename="renderpause.h" />
 		<Unit filename="renderwintexture.cpp" />
 		<Unit filename="renderwintexture.h" />
 		<Unit filename="sokoban.cpp" />
+		<Unit filename="sokoban.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
