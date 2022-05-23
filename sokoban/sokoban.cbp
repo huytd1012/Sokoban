@@ -13,11 +13,11 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="../../SDL2-2.0.20/x86_64-w64-mingw32/include" />
+					<Add directory="C:/Users/User/Desktop/Sokuban/sokoban/src/x86_64-w64-mingw32/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
-					<Add directory="../../SDL2-2.0.20/x86_64-w64-mingw32/lib" />
+					<Add directory="C:/Users/User/Desktop/Sokuban/sokoban/src/x86_64-w64-mingw32/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -49,9 +49,18 @@
 		<Unit filename="getmap.h" />
 		<Unit filename="levelchecksuccess.cpp" />
 		<Unit filename="levelchecksuccess.h" />
+		<Unit filename="playerpos.cpp" />
+		<Unit filename="playerpos.h" />
+		<Unit filename="renderbackgame.cpp" />
+		<Unit filename="renderbackgame.h" />
+		<Unit filename="rendergame.cpp" />
+		<Unit filename="rendergame.h" />
+		<Unit filename="renderpause.cpp" />
+		<Unit filename="renderpause.h" />
 		<Unit filename="renderwintexture.cpp" />
 		<Unit filename="renderwintexture.h" />
 		<Unit filename="sokoban.cpp" />
+		<Unit filename="sokoban.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
