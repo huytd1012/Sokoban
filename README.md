@@ -21,13 +21,15 @@
 + con trỏ
 + đồ họa
 5.
-+ kết luận: - game đã hoàn thiện về mặt hình ảnh
-            - còn chưa quá mượt
-            - ít màn, chưa có chọn màn
-            - chưa có âm nhạc
-+ hướng phát triển: - vẽ game mượt hơn
-                    - thêm màn, thêm chức năng chọn màn
-                    - thêm âm nhạc
-+ điều tâm đắc: - đã tự làm được một trò chơi
++ kết luận: 
+  - game đã hoàn thiện về mặt hình ảnh
+  - còn chưa quá mượt
+  - ít màn, chưa có chọn màn
+  - chưa có âm nhạc
++ hướng phát triển: 
+  - vẽ game mượt hơn
+  - thêm màn, thêm chức năng chọn màn
+  - thêm âm nhạc
++ điều tâm đắc: đã tự làm được một trò chơi
 
 *NOTE : tham khảo map từ trang https://www.cbc.ca/kids/games/play/sokoban và hình ảnh lấy từ trang https://opengameart.org/content/sokoban-100-tiles
