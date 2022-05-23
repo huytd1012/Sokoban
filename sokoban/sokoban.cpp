@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
-#include"renderwintexture.h"
-#include"levelchecksuccess.h"
-#include"drawmap.h"
-#include"getmap.h"
 #include"drawmenu.h"
+#include"drawmap.h"
+#include"drawcontinue.h"
+#include"levelchecksuccess.h"
+#include"getmap.h"
+#include"sokoban.h"
 #include"renderbackgame.h"
 #include"rendergame.h"
-#include"sokoban.h"
+#include"renderwintexture.h"
 #include"renderpause.h"
 using namespace std;
 void initSDL( SDL_Window*& window , SDL_Renderer*& renderer )
@@ -182,7 +183,7 @@ int main(int arc, char* argv[])
                 SDL_GetGlobalMouseState(&x,&y);
                 if( x <= 715 && x >= 633 && y <= 545 && y >= 466 ){//chơi tiếp
                     SDL_RenderClear(renderer);
-                    drawmenu(renderer);
+                    drawcontinue(renderer);
                     x = -1; y = -1;
                     screen = 1;
                 }
@@ -198,6 +199,23 @@ int main(int arc, char* argv[])
                     screen = 2;
                     x = -1; y = -1;
                 }
+            }
+        }
+        if( screen == 5 && event.type == SDL_MOUSEBUTTONDOWN )//màn hình continue
+        {
+            SDL_GetGlobalMouseState(&x,&y);
+            if( x >= 565 && x <= 930 && y <= 401 && y >= 333 ){
+                SDL_RenderClear(renderer);
+                drawheader(renderer);
+                for ( int i = 0; i < row; i++)
+                    for ( int j = 0; j < column; j++)
+                    {
+                        getmap(&playerpos);
+                        drawmap(smap[i][j],i,j,renderer);
+                    }
+                checkwin = false;
+                x = -1; y = -1;
+                screen = 2;
             }
         }
 	}
