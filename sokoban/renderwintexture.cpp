@@ -5,7 +5,7 @@
 #include"sokoban.h"
 void renderwintexture(SDL_Renderer *&renderer)
 {
-    string file = "winlevel" + level + ".bmp";
+    string file = "winscr/winlevel" + level + ".bmp";
     SDL_Surface *surface = SDL_LoadBMP(file.c_str());
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);

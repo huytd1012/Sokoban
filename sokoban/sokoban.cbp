@@ -16,7 +16,7 @@
 					<Add directory="src/x86_64-w64-mingw32/include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
 					<Add directory="src/x86_64-w64-mingw32/lib" />
 				</Linker>
 			</Target>
@@ -47,10 +47,14 @@
 		<Unit filename="drawmap.h" />
 		<Unit filename="drawmenu.cpp" />
 		<Unit filename="drawmenu.h" />
+		<Unit filename="drawmute.cpp" />
+		<Unit filename="drawmute.h" />
 		<Unit filename="getmap.cpp" />
 		<Unit filename="getmap.h" />
 		<Unit filename="levelchecksuccess.cpp" />
 		<Unit filename="levelchecksuccess.h" />
+		<Unit filename="music.cpp" />
+		<Unit filename="music.h" />
 		<Unit filename="playerpos.cpp" />
 		<Unit filename="playerpos.h" />
 		<Unit filename="renderbackgame.cpp" />

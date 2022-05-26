@@ -1,6 +1,7 @@
 #include"rendergame.h"
 #include"sokoban.h"
-void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos)
+#include"music.h"
+void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos, string mute)
 {
     switch( event -> key.keysym.sym)
     {
@@ -12,6 +13,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'd':
                 {
+                    if( mute != "unmute" ) Playsound();
                     smap[playerpos->x][playerpos->y-1] = smap[playerpos->x][playerpos->y];
                     smap[playerpos->x][playerpos->y] = 'g';
                     playerpos->y--;
@@ -23,6 +25,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         char tmp = smap[playerpos->x][playerpos->y-2];
                         smap[playerpos->x][playerpos->y-2] = smap[playerpos->x][playerpos->y-1];
                         smap[playerpos->x][playerpos->y-1] = smap[playerpos->x][playerpos->y];
@@ -39,6 +42,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y-2] = 's';
                         smap[playerpos->x][playerpos->y-1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -53,6 +57,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y-2] = 'b';
                         smap[playerpos->x][playerpos->y-1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -68,6 +73,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y-2] = 's';
                         smap[playerpos->x][playerpos->y-1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -79,6 +85,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'g':
                 {
+                    if( mute != "unmute" ) Playsound();
                     swap( smap[playerpos->x][playerpos->y],smap[playerpos->x][playerpos->y-1]);
                     playerpos->y--;
                     Move.push_back(3);
@@ -102,6 +109,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'd':
                 {
+                    if( mute != "unmute" ) Playsound();
                     smap[playerpos->x][playerpos->y+1] = smap[playerpos->x][playerpos->y];
                     smap[playerpos->x][playerpos->y] = 'g';
                     playerpos->y++;
@@ -113,6 +121,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         char tmp = smap[playerpos->x][playerpos->y+2];
                         smap[playerpos->x][playerpos->y+2] = smap[playerpos->x][playerpos->y+1];
                         smap[playerpos->x][playerpos->y+1] = smap[playerpos->x][playerpos->y];
@@ -129,6 +138,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y+2] = 's';
                         smap[playerpos->x][playerpos->y+1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -143,6 +153,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y+2] = 'b';
                         smap[playerpos->x][playerpos->y+1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -158,6 +169,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x][playerpos->y+2] = 's';
                         smap[playerpos->x][playerpos->y+1] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -169,6 +181,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'g':
                 {
+                    if( mute != "unmute" ) Playsound();
                     swap( smap[playerpos->x][playerpos->y],smap[playerpos->x][playerpos->y+1]);
                     playerpos->y++;
                     Move.push_back(4);
@@ -192,6 +205,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'd':
                 {
+                    if( mute != "unmute" ) Playsound();
                     smap[playerpos->x-1][playerpos->y] = smap[playerpos->x][playerpos->y];
                     smap[playerpos->x][playerpos->y] = 'g';
                     playerpos->x--;
@@ -203,6 +217,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         char tmp = smap[playerpos->x-2][playerpos->y];
                         smap[playerpos->x-2][playerpos->y] = smap[playerpos->x-1][playerpos->y];
                         smap[playerpos->x-1][playerpos->y] = smap[playerpos->x][playerpos->y];
@@ -219,6 +234,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x-2][playerpos->y] = 's';
                         smap[playerpos->x-1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -233,6 +249,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x-2][playerpos->y] = 'b';
                         smap[playerpos->x-1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -248,6 +265,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x-2][playerpos->y] = 's';
                         smap[playerpos->x-1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -259,6 +277,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'g':
                 {
+                    if( mute != "unmute" ) Playsound();
                     swap( smap[playerpos->x][playerpos->y],smap[playerpos->x-1][playerpos->y]);
                     playerpos->x--;
                     Move.push_back(1);
@@ -282,6 +301,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'd':
                 {
+                    if( mute != "unmute" ) Playsound();
                     smap[playerpos->x+1][playerpos->y] = smap[playerpos->x][playerpos->y];
                     smap[playerpos->x][playerpos->y] = 'g';
                     playerpos->x++;
@@ -293,6 +313,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         char tmp = smap[playerpos->x+2][playerpos->y];
                         smap[playerpos->x+2][playerpos->y] = smap[playerpos->x+1][playerpos->y];
                         smap[playerpos->x+1][playerpos->y] = smap[playerpos->x][playerpos->y];
@@ -309,6 +330,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x+2][playerpos->y] = 's';
                         smap[playerpos->x+1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -323,6 +345,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 {
                 case 'g':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x+2][playerpos->y] = 'b';
                         smap[playerpos->x+1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -338,6 +361,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                     break;
                 case 'd':
                     {
+                        if( mute != "unmute" ) Playsound();
                         smap[playerpos->x+2][playerpos->y] = 's';
                         smap[playerpos->x+1][playerpos->y] = smap[playerpos->x][playerpos->y];
                         smap[playerpos->x][playerpos->y] = 'g';
@@ -349,6 +373,7 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
                 break;
             case 'g':
                 {
+                    if( mute != "unmute" ) Playsound();
                     swap( smap[playerpos->x][playerpos->y],smap[playerpos->x+1][playerpos->y]);
                     playerpos->x++;
                     Move.push_back(2);
