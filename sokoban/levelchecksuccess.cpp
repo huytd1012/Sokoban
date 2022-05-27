@@ -3,7 +3,7 @@
 #include"getmap.h"
 #include"renderwintexture.h"
 #include"sokoban.h"
-void levelchecksuccess(SDL_Renderer *&renderer)
+void levelchecksuccess(SDL_Renderer *&renderer, SDL_Surface *surface, SDL_Texture *texture)
 {
     bool check = 1;
     for( int i = 0; i < row; ++i )
@@ -12,7 +12,7 @@ void levelchecksuccess(SDL_Renderer *&renderer)
         if( dotpos[i][j] && smap[i][j] != 's' ) check = 0;
     }
     if( check ) {
-        renderwintexture(renderer);
+        renderwintexture(renderer,surface,texture);
         checkwin = true;
     }
 }

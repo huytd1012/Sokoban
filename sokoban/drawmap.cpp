@@ -1,11 +1,11 @@
 #include "drawmap.h"
 #include "getmap.h"
 #include"sokoban.h"
-void drawheader(SDL_Renderer* renderer)
+void drawheader(SDL_Renderer* renderer, SDL_Surface *surface, SDL_Texture *texture)
 {
-    string file = "level" + level + ".bmp";
-    SDL_Surface *surface = SDL_LoadBMP(file.c_str());
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    string file = "picture/level" + level + ".bmp";
+    surface = SDL_LoadBMP(file.c_str());
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     SDL_Rect desRect;
     desRect.x = 0;
@@ -14,13 +14,16 @@ void drawheader(SDL_Renderer* renderer)
     desRect.h = 75;
     SDL_RenderCopy(renderer, texture, 0, &desRect);
     SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(texture);
 }
-void drawmap( char a, int i, int j, SDL_Renderer* renderer)
+void drawmap( char a, int i, int j, SDL_Renderer* renderer, SDL_Surface *surface, SDL_Texture *texture)
 {
     string s;
-    SDL_Surface* surface = NULL;SDL_Texture* texture = NULL;SDL_Rect desRect;
-    if( ( a != 'p' && a != 's' && a != 'b' ) && dotpos[i][j] == 1 ) s = "d.bmp";
-    else if( a != 'n' ) s = string(1,a) + ".bmp";
+    surface = NULL;
+    texture = NULL;
+    SDL_Rect desRect;
+    if( ( a != 'p' && a != 's' && a != 'b' ) && dotpos[i][j] == 1 ) s = "picture/d.bmp";
+    else if( a != 'n' ) s = "picture/" + string(1,a) + ".bmp";
     //cout << a << ' ';
     const char* tmp = s.c_str();
     surface = SDL_LoadBMP(tmp);

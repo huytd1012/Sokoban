@@ -1,9 +1,9 @@
 #include"drawmute.h"
-void drawmute( SDL_Renderer* renderer , string mute,int i,int j)
+void drawmute( SDL_Renderer* renderer , string mute,int i,int j, SDL_Surface *surface, SDL_Texture *texture)
 {
-    string file = mute + ".bmp";
-    SDL_Surface *surface = SDL_LoadBMP(file.c_str());
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    string file = "picture/" + mute + ".bmp";
+    surface = SDL_LoadBMP(file.c_str());
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     SDL_Rect desRect;
     desRect.x = i;
@@ -12,4 +12,5 @@ void drawmute( SDL_Renderer* renderer , string mute,int i,int j)
     desRect.h = 75;
     SDL_RenderCopy(renderer, texture, 0, &desRect);
     SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(texture);
 }

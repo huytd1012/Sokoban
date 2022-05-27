@@ -1,7 +1,7 @@
 #include"rendergame.h"
 #include"sokoban.h"
 #include"music.h"
-void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos, string mute)
+void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos, string mute, SDL_Surface *surface,SDL_Texture *texture)
 {
     switch( event -> key.keysym.sym)
     {
@@ -95,8 +95,8 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
             for ( int i = 0; i < row; i++)
                 for ( int j = 0; j < column; j++)
                 {
-                    levelchecksuccess(renderer);
-                    if( !checkwin) drawmap(smap[i][j],i,j,renderer);
+                    levelchecksuccess(renderer,surface,texture);
+                    if( !checkwin) drawmap(smap[i][j],i,j,renderer,surface,texture);
                     if( ( smap[i][j] != 'p' && smap[i][j] != 's' && smap[i][j] != 'b' ) && dotpos[i][j] == 1 ) smap[i][j] = 'd';
                 }
         break;
@@ -191,8 +191,8 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
             for ( int i = 0; i < row; i++)
                 for ( int j = 0; j < column; j++)
                 {
-                    levelchecksuccess(renderer);
-                    if( !checkwin) drawmap(smap[i][j],i,j,renderer);
+                    levelchecksuccess(renderer,surface,texture);
+                    if( !checkwin) drawmap(smap[i][j],i,j,renderer,surface,texture);
                     if( ( smap[i][j] != 'p' && smap[i][j] != 's' && smap[i][j] != 'b' ) && dotpos[i][j] == 1 ) smap[i][j] = 'd';
                 }
         break;
@@ -287,8 +287,8 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
             for ( int i = 0; i < row; i++)
                 for ( int j = 0; j < column; j++)
                 {
-                    levelchecksuccess(renderer);
-                    if( !checkwin) drawmap(smap[i][j],i,j,renderer);
+                    levelchecksuccess(renderer,surface,texture);
+                    if( !checkwin) drawmap(smap[i][j],i,j,renderer,surface,texture);
                     if( ( smap[i][j] != 'p' && smap[i][j] != 's' && smap[i][j] != 'b' ) && dotpos[i][j] == 1 ) smap[i][j] = 'd';
                 }
         break;
@@ -383,8 +383,8 @@ void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpo
             for ( int i = 0; i < row; i++)
                 for ( int j = 0; j < column; j++)
                 {
-                    levelchecksuccess(renderer);
-                    if( !checkwin) drawmap(smap[i][j],i,j,renderer);
+                    levelchecksuccess(renderer,surface,texture);
+                    if( !checkwin) drawmap(smap[i][j],i,j,renderer,surface,texture);
                     if( ( smap[i][j] != 'p' && smap[i][j] != 's' && smap[i][j] != 'b' ) && dotpos[i][j] == 1 ) smap[i][j] = 'd';
                 }
         break;

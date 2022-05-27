@@ -8,4 +8,4 @@
 #include"drawmenu.h"
 #include"renderbackgame.h"
 #include"sokoban.h"
-void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos, string mute );
+void rendergame( SDL_Renderer * renderer , SDL_Event *event, Playerpos *playerpos, string mute, SDL_Surface *surface,SDL_Texture *texture );

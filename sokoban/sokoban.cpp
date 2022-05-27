@@ -57,11 +57,13 @@ int main(int arc, char* argv[])
     level = string(1,lv);
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
+    SDL_Surface *surface;
+    SDL_Texture *texture;
     initSDL(window,renderer);
 
     SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
     SDL_RenderClear(renderer);
-    drawmenu(renderer);
+    drawmenu(renderer,surface,texture);
     //drawmute(renderer,mute,425,0);
 
     screen = 1;
@@ -77,16 +79,20 @@ int main(int arc, char* argv[])
             SDL_GetGlobalMouseState(&x,&y);
             if( x >= 565 && x <= 930 && y <= 401 && y >= 333 ){//bắt đầu chơi
                 SDL_RenderClear(renderer);
-                drawheader(renderer);drawmute(renderer,mute,275,0);
+                drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                 for ( int i = 0; i < row; i++)
                     for ( int j = 0; j < column; j++)
                     {
                         getmap(&playerpos);
-                        drawmap(smap[i][j],i,j,renderer);
+                        drawmap(smap[i][j],i,j,renderer,surface,texture);
                     }
                 checkwin = false;
                 x = -1; y = -1;
                 screen = 2;
+            }
+            if( x >= 565 && x <= 930 && y <= 490 && y >= 422 ){//thoát game
+                quit = true;
+                break;
             }
         }
         if( event.type ==  SDL_QUIT)
@@ -97,23 +103,23 @@ int main(int arc, char* argv[])
 
         if( screen == 2 ) {//màn hình chơi
             if( event.type ==  SDL_KEYDOWN)//thao tác bấm bàn phím
-                rendergame(renderer,&event,&playerpos,mute);
+                rendergame(renderer,&event,&playerpos,mute,surface,texture);
 
             if( event.type == SDL_MOUSEBUTTONDOWN){//thao tác bấm chuột
                 SDL_GetGlobalMouseState(&x,&y);
                 if( x >= 775 && x <= 850 && y <= 150 && y >= 75 ){//tắt âm
                     if( mute == "mute" ) mute = "unmute";
                     else mute = "mute";
-                    drawmute(renderer,mute,275,0);
+                    drawmute(renderer,mute,275,0,surface,texture);
                 }
                 if( x >= 925 && y <= 150 && x <= 1000 && y >= 75 && checkwin == false){//chơi lại khi chưa xong level
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
                             getmap(&playerpos);
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     x = -1; y = -1;
                     Move = Newmove;
@@ -124,12 +130,12 @@ int main(int arc, char* argv[])
                     lv++;
                     level = string(1,lv);
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
                             getmap(&playerpos);
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     checkwin = false;
                     x = -1; y = -1;
@@ -138,12 +144,12 @@ int main(int arc, char* argv[])
 
                 if( x >= 714 && x <= 795 && y >= 538 && y <= 620 && checkwin == true ){//chơi lại khi đã xong level
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
                             getmap(&playerpos);
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     checkwin = false;
                     x = -1; y = -1;
@@ -154,12 +160,12 @@ int main(int arc, char* argv[])
                     lv--;
                     level = string(1,lv);
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
                             getmap(&playerpos);
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     checkwin = false;
                     x = -1; y = -1;
@@ -172,20 +178,20 @@ int main(int arc, char* argv[])
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     Playsound();
                     x = -1; y = -1;
                 }
                 if( x <= 575 && x >= 500 && y <= 150 && y >= 75 ){//tạm dừng
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
-                    renderpause(renderer);
+                    renderpause(renderer,surface,texture);
                     screen = 4;
                     x = -1; y = -1;
                 }
@@ -197,18 +203,18 @@ int main(int arc, char* argv[])
                 SDL_GetGlobalMouseState(&x,&y);
                 if( x <= 715 && x >= 633 && y <= 545 && y >= 466 ){//chơi tiếp
                     SDL_RenderClear(renderer);
-                    drawcontinue(renderer);
+                    drawcontinue(renderer,surface,texture);
                     x = -1; y = -1;
                     screen = 1;
                 }
 
-                if( x <= 864 && x >= 784 && y <= 545 && y >= 466 ){//màn hình menu
+                if( x <= 864 && x >= 784 && y <= 545 && y >= 466 ){//chuyển sang màn hình continue
                     SDL_RenderClear(renderer);
-                    drawheader(renderer);drawmute(renderer,mute,275,0);
+                    drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                     for ( int i = 0; i < row; i++)
                         for ( int j = 0; j < column; j++)
                         {
-                            drawmap(smap[i][j],i,j,renderer);
+                            drawmap(smap[i][j],i,j,renderer,surface,texture);
                         }
                     screen = 2;
                     x = -1; y = -1;
@@ -220,16 +226,20 @@ int main(int arc, char* argv[])
             SDL_GetGlobalMouseState(&x,&y);
             if( x >= 565 && x <= 930 && y <= 401 && y >= 333 ){
                 SDL_RenderClear(renderer);
-                drawheader(renderer);drawmute(renderer,mute,275,0);
+                drawheader(renderer,surface,texture);drawmute(renderer,mute,275,0,surface,texture);
                 for ( int i = 0; i < row; i++)
                     for ( int j = 0; j < column; j++)
                     {
                         getmap(&playerpos);
-                        drawmap(smap[i][j],i,j,renderer);
+                        drawmap(smap[i][j],i,j,renderer,surface,texture);
                     }
                 checkwin = false;
                 x = -1; y = -1;
                 screen = 2;
+            }
+            if( x >= 565 && x <= 930 && y <= 490 && y >= 422 ){//thoát game
+                quit = true;
+                break;
             }
         }
 	}

@@ -3,4 +3,4 @@
 #include"drawmap.h"
 #include"getmap.h"
 #include"sokoban.h"
-void renderpause(SDL_Renderer *renderer);
+void renderpause(SDL_Renderer *renderer, SDL_Surface *surface, SDL_Texture *texture);

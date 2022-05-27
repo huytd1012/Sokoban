@@ -1,9 +1,9 @@
 #include"drawmenu.h"
 #include"sokoban.h"
-void drawcontinue( SDL_Renderer* renderer )
+void drawcontinue( SDL_Renderer* renderer, SDL_Surface *surface, SDL_Texture *texture )
 {
-    SDL_Surface *surface = SDL_LoadBMP("continue.bmp");
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    surface = SDL_LoadBMP("picture/continue.bmp");
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     SDL_Rect desRect;
     desRect.x = 0;
@@ -12,4 +12,5 @@ void drawcontinue( SDL_Renderer* renderer )
     desRect.h = 720;
     SDL_RenderCopy(renderer, texture, 0, &desRect);
     SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(texture);
 }
