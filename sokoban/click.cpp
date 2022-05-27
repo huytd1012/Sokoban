@@ -1,5 +1,5 @@
-#include"music.h"
-void Playsound()
+#include"click.h"
+void click()
 {
     if (Mix_OpenAudioDevice(22050, MIX_DEFAULT_FORMAT, 2, 2048,"Speakers (Realtek(R) Audio)",0) == -1)
     {
@@ -8,7 +8,7 @@ void Playsound()
         return;
     }
     Mix_Chunk* chunk;
-    chunk = Mix_LoadWAV("walk.wav");
+    chunk = Mix_LoadWAV("click.wav");
     if( chunk == NULL )
     {
         printf("%s", Mix_GetError());
@@ -17,3 +17,4 @@ void Playsound()
     Mix_PlayChannel(-1, chunk, 0);
     Mix_CloseAudio();
 }
+

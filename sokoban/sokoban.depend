@@ -1084,7 +1084,7 @@
 	"getmap.h"
 	"sokoban.h"
 
-1653628164 source:c:\users\user\desktop\sokoban\sokoban\drawmap.cpp
+1653628995 source:c:\users\user\desktop\sokoban\sokoban\drawmap.cpp
 	"drawmap.h"
 	"getmap.h"
 	"sokoban.h"
@@ -1489,7 +1489,7 @@
 
 1653288178 c:\users\user\desktop\sokoban\sokoban\playerpos.h
 
-1653628139 source:c:\users\user\desktop\sokoban\sokoban\drawmenu.cpp
+1653628996 source:c:\users\user\desktop\sokoban\sokoban\drawmenu.cpp
 	"drawmenu.h"
 	"sokoban.h"
 
@@ -1499,7 +1499,7 @@
 	<SDL2/SDL_image.h>
 	"sokoban.h"
 
-1653573956 source:c:\users\user\desktop\sokoban\sokoban\getmap.cpp
+1653664473 source:c:\users\user\desktop\sokoban\sokoban\getmap.cpp
 	"getmap.h"
 	"sokoban.h"
 	"playerpos.h"
@@ -1533,7 +1533,7 @@
 	"getmap.h"
 	"sokoban.h"
 
-1653628863 source:c:\users\user\desktop\sokoban\sokoban\sokoban.cpp
+1653667793 source:c:\users\user\desktop\sokoban\sokoban\sokoban.cpp
 	<bits/stdc++.h>
 	<SDL2/SDL.h>
 	<SDL2/SDL_mixer.h>
@@ -1549,6 +1549,7 @@
 	"rendergame.h"
 	"renderpause.h"
 	"renderwintexture.h"
+	"click.h"
 
 1653288178 c:\users\user\desktop\sokoban\sokoban\renderbackgame.h
 	<bits/stdc++.h>
@@ -1602,7 +1603,7 @@
 	"getmap.h"
 	"sokoban.h"
 
-1653628139 source:c:\users\user\desktop\sokoban\sokoban\drawcontinue.cpp
+1653628996 source:c:\users\user\desktop\sokoban\sokoban\drawcontinue.cpp
 	"drawmenu.h"
 	"sokoban.h"
 
@@ -1621,14 +1622,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1653582168 source:c:\users\user\desktop\sokoban\sokoban\music.cpp
+1653666886 source:c:\users\user\desktop\sokoban\sokoban\music.cpp
 	"music.h"
 
-1653573969 c:\users\user\desktop\sokoban\sokoban\music.h
+1653667793 c:\users\user\desktop\sokoban\sokoban\music.h
 	<SDL2/SDL_mixer.h>
 	<bits/stdc++.h>
 
-1653628139 source:c:\users\user\desktop\sokoban\sokoban\drawmute.cpp
+1653628996 source:c:\users\user\desktop\sokoban\sokoban\drawmute.cpp
 	"drawmute.h"
 
 1653628139 c:\users\user\desktop\sokoban\sokoban\drawmute.h
@@ -1636,4 +1637,11 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	"sokoban.h"
+
+1653667793 c:\users\user\desktop\sokoban\sokoban\click.h
+	<SDL2/SDL_mixer.h>
+	<bits/stdc++.h>
+
+1653667813 source:c:\users\user\desktop\sokoban\sokoban\click.cpp
+	"click.h"
 
