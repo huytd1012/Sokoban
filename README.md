@@ -16,7 +16,7 @@
 + sau khi xong một màn có thể sang màn kế tiếp hoặc quay lại màn trước đó
 + có thể tạm dừng, tiếp tục 
 + có âm thanh khi di chuyển và bấm nút
-+ link youtube minh họa: https://youtu.be/0mmyMeB8-NU
++ link youtube minh họa: https://youtu.be/NRklWnEjYYQ
 4. Các kỹ thuật được sử dụng:
 + mảng
 + cấu trúc
